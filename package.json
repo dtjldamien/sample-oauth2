@@ -1,0 +1,12 @@
+{
+  "name": "sample-oauth2",
+  "version": "1.0.0",
+  "description": "Sample endpoints to test OAuth 2.0 mechanisms",
+  "main": "index.js",
+  "author": "Damien Tan",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
