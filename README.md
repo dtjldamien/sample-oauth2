@@ -9,10 +9,16 @@ yarn
 ```
 
 ## Usage
-
+To test scope only
 ```bash
-node index.js
+yarn start:http
 ```
+
+To test scope and mutual TLS
+```bash
+yarn start:https
+```
+
 Install [Insomnia](insomnia.rest) or [Postman](postman.com)\
 Sample endpoints are available in `./endpoints`
 
