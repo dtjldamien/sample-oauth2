@@ -11,7 +11,6 @@ app.use("/", router);
 
 app.post("/token", function (req, res) {
     expires_in = 60;
-    scope = req.body.scope;
     access_token = Date.now() + expires_in * 1000;
 
     if (req.body.grant_type === "client_credentials") {
@@ -30,7 +29,6 @@ app.post("/token", function (req, res) {
         res.sendStatus(400); // bad input
     }
 
-    access_token += "." + scope;
     res_body = JSON.stringify({
         access_token,
         refresh_token: "refresh_token",
@@ -45,22 +43,15 @@ app.get("/check", function (req, res) {
     console.log("/check", "Received request");
     console.log("Token: ", req.headers.authorization);
 
-    token_split = req.headers.authorization.replace("Bearer ", "").split(".");
-    tokenDate = new Date(parseInt(token_split[0]));
-    scope = token_split[1];
+    token_split = req.headers.authorization.replace("Bearer ", "");
+    tokenDate = new Date(parseInt(token_split));
 
     if (Date.now() > tokenDate) {
         console.log("Token has expired, returning 401");
         res.sendStatus(401);
     } else {
-        // check scope
-        if (scope === "check") {
-            console.log("Token accepted");
-            res.send(JSON.stringify({ status: "ok" }));
-        } else {
-            console.log("Token does not has required scope");
-            res.sendStatus(403);
-        }
+        console.log("Token accepted");
+        res.send(JSON.stringify({ status: "ok" }));
     }
 });
 

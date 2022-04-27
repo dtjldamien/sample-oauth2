@@ -1,26 +1,35 @@
 # Sample OAuth 2.0 Express server
-
 Sample OAuth 2.0 Express server to test connection and endpoints.
 
 ## Installation
-
 ```bash
 yarn
 ```
 
 ## Usage
-To test scope only
+To test without scope and credentials only
 ```bash
-yarn start:http
+yarn start
 ```
 
-To test scope and mutual TLS
+To test with scope only
 ```bash
-yarn start:https
+yarn start:scope
 ```
 
+To test with certificates only
+```bash
+yarn start:cert
+```
+
+To test with scope and certificates
+```bash
+yarn start:cert-scope
+```
+
+## Endpoints
 Install [Insomnia](insomnia.rest) or [Postman](postman.com)\
-Sample endpoints are available in `./endpoints`
+Sample endpoints are available in `./endpoints`, which can be imported into Insomnia.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

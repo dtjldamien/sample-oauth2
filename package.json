@@ -2,10 +2,12 @@
   "name": "sample-oauth2",
   "version": "1.0.0",
   "description": "Sample endpoints to test OAuth 2.0 mechanisms",
-  "main": "index-http.js",
+  "main": "index.js",
   "scripts": {
-    "start:http": "nodemon index-http.js",
-    "start:https": "nodemon index-https.js"
+    "start": "nodemon index.js",
+    "start:scope": "nodemon index-scope.js",
+    "start:cert": "nodemon index-cert.js",
+    "start:cert-scope": "nodemon index-cert-scope.js"
   },
   "author": "Damien Tan",
   "license": "MIT",
