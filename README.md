@@ -7,7 +7,7 @@ yarn
 ```
 
 ## Usage
-To test without scope and credentials only
+To test without scope or certificates
 ```bash
 yarn start
 ```
