@@ -7,7 +7,8 @@
     "start": "nodemon index.js",
     "start:scope": "nodemon index-scope.js",
     "start:cert": "nodemon index-cert.js",
-    "start:cert-scope": "nodemon index-cert-scope.js"
+    "start:cert-scope": "nodemon index-cert-scope.js",
+    "start:scope-no-refresh": "nodemon index-scope-no-refresh.js"
   },
   "author": "Damien Tan",
   "license": "MIT",
