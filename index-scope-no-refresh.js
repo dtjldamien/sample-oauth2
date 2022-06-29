@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 app.use("/", router);
 
 app.post("/token", function (req, res) {
-    expires_in = 60;
-    scope = req.body.scope;
-    access_token = Date.now() + expires_in * 1000;
+    let expires_in = 60;
+    let scope = req.body.scope;
+    let access_token = Date.now() + expires_in * 1000;
 
     if (req.body.grant_type === "client_credentials") {
         console.log(
@@ -31,7 +31,7 @@ app.post("/token", function (req, res) {
     }
 
     access_token += "." + scope;
-    res_body = JSON.stringify({
+    let res_body = JSON.stringify({
         access_token,
         expires_in,
         token_type: "Bearer",
@@ -44,9 +44,9 @@ app.get("/check", function (req, res) {
     console.log("/check", "Received request");
     console.log("Token: ", req.headers.authorization);
 
-    token_split = req.headers.authorization.replace("Bearer ", "").split(".");
-    tokenDate = new Date(parseInt(token_split[0]));
-    scope = token_split[1];
+    let token_split = req.headers.authorization.replace("Bearer ", "").split(".");
+    let tokenDate = new Date(parseInt(token_split[0]));
+    let scope = token_split[1];
 
     if (Date.now() > tokenDate) {
         console.log("Token has expired, returning 401");
