@@ -15,3 +15,5 @@ benchmarks/graphs
 # https://git-scm.com/docs/gitignore
 
 .DS_Store
+
+uploads

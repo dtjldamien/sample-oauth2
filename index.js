@@ -1,6 +1,8 @@
 const express = require("express");
 const port = 8000;
 const bodyParser = require("body-parser");
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' })
 const router = express.Router();
 var app = express();
 
@@ -53,6 +55,14 @@ app.get("/check", function (req, res) {
         console.log("Token accepted");
         res.send(JSON.stringify({ status: "ok" }));
     }
+});
+
+// create multipart form endpoint
+app.post('/multipart', upload.single('uploadFile'), (req, res) => {
+    console.log("/multipart", "Received request");
+    // log multipart form data in order of keys
+    console.log("Object.keys", Object.keys(req.body));
+    res.send(JSON.stringify({ status: "ok", order: Object.keys(req.body) }));
 });
 
 app.listen(port, function () {
