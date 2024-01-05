@@ -65,6 +65,15 @@ app.post('/multipart', upload.single('uploadFile'), (req, res) => {
     res.send(JSON.stringify({ status: "ok", order: Object.keys(req.body) }));
 });
 
+app.get('/test-content-type', function (req, res) {
+    console.log("/test-content-type", "Received request");
+    if (req.headers['content-type'] === 'application/json') {
+        res.sendStatus(400);
+    } else {
+        res.send(JSON.stringify({ status: "ok" }));
+    }
+});
+
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`);
     var route,
