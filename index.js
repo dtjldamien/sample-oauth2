@@ -58,11 +58,14 @@ app.get("/check", function (req, res) {
 });
 
 // create multipart form endpoint
-app.post('/multipart', upload.single('uploadFile'), (req, res) => {
-    console.log("/multipart", "Received request");
-    // log multipart form data in order of keys
-    console.log("Object.keys", Object.keys(req.body));
-    res.send(JSON.stringify({ status: "ok", order: Object.keys(req.body) }));
+app.post('/multipart', upload.single('file'), (req, res) => {
+    console.log("/multipart headers:" , req.headers);
+    res.send(JSON.stringify({ req_headers: req.headers }));
+});
+
+app.get('/check-headers', (req, res) => {
+    console.log("/check-headers headers:" , req.headers);
+    res.send(JSON.stringify({ req_headers: req.headers }));
 });
 
 app.get('/test-content-type', function (req, res) {
