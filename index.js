@@ -69,7 +69,7 @@ app.get('/check-headers', (req, res) => {
 });
 
 app.get('/test-content-type', function (req, res) {
-    console.log("/test-content-type", "Received request");
+    console.log("/test-content-type headers:", req.headers);
     if (req.headers['content-type'] === 'application/json') {
         res.sendStatus(400);
     } else {
